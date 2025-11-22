@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowLeft, Heart, Share2, MapPin, Clock, Star, ShoppingCart, MessageSquare, TrendingUp, AlertCircle } from "lucide-react";
+import { ArrowLeft, Heart, Share2, MapPin, Clock, Star, ShoppingCart, MessageSquare, AlertCircle } from "lucide-react";
 
 interface Review {
   id: number;
@@ -16,7 +16,6 @@ export default function ProductDetail() {
   const [quantity, setQuantity] = useState(1);
   const [liked, setLiked] = useState(false);
 
-  // Mock product data - in a real app, this would come from an API
   const product = {
     id: 1,
     name: "Fresh Organic Apples - Premium Quality",
@@ -83,7 +82,6 @@ export default function ProductDetail() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
       <header className="sticky top-0 z-40 bg-white border-b border-slate-200">
         <div className="container-wide py-4 flex items-center justify-between">
           <Link
@@ -101,7 +99,6 @@ export default function ProductDetail() {
 
       <div className="container-wide py-8 md:py-12">
         <div className="grid md:grid-cols-2 gap-12 mb-12">
-          {/* Product Image Section */}
           <div>
             <div className="bg-gradient-to-br from-slate-100 to-slate-200 rounded-2xl h-96 md:h-full min-h-96 flex items-center justify-center relative mb-6">
               <span className="text-9xl">{product.image}</span>
@@ -111,23 +108,20 @@ export default function ProductDetail() {
             </div>
           </div>
 
-          {/* Product Info Section */}
           <div>
-            {/* Breadcrumb */}
             <p className="text-sm text-slate-600 mb-4">
               <a href="#" className="hover:text-primary">
                 Fresh Produce
-              </a>{" "}
-              / {product.name}
+              </a>
+              {" / "}
+              {product.name}
             </p>
 
-            {/* Title & Rating */}
             <h1 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
               {product.name}
             </h1>
 
             <div className="flex flex-wrap items-center gap-4 mb-6">
-              {/* Rating */}
               <div className="flex items-center gap-2">
                 <div className="flex items-center gap-1">
                   {[...Array(5)].map((_, i) => (
@@ -145,7 +139,6 @@ export default function ProductDetail() {
                 <span className="text-slate-600">({product.reviews} reviews)</span>
               </div>
 
-              {/* Location */}
               <div className="flex items-center gap-2 text-slate-600">
                 <MapPin className="w-4 h-4" />
                 <span>{product.location}</span>
@@ -154,7 +147,6 @@ export default function ProductDetail() {
               </div>
             </div>
 
-            {/* Stock Status */}
             {product.stock < 10 ? (
               <div className="flex items-center gap-2 mb-6 p-3 bg-warning/10 border border-warning/30 rounded-lg">
                 <AlertCircle className="w-5 h-5 text-warning" />
@@ -169,7 +161,6 @@ export default function ProductDetail() {
               </div>
             )}
 
-            {/* Price Section */}
             <div className="mb-8">
               <div className="flex items-baseline gap-3 mb-2">
                 <span className="text-4xl font-bold text-primary">₹{product.price}</span>
@@ -182,7 +173,6 @@ export default function ProductDetail() {
               </div>
             </div>
 
-            {/* Seller Info */}
             <div className="bg-slate-50 rounded-xl p-4 mb-8 border border-slate-200">
               <div className="flex items-center justify-between mb-3">
                 <div>
@@ -212,7 +202,6 @@ export default function ProductDetail() {
               </button>
             </div>
 
-            {/* Quantity & Actions */}
             <div className="space-y-4 mb-8">
               <div className="flex items-center gap-4">
                 <div className="flex items-center border border-slate-200 rounded-lg">
@@ -263,7 +252,6 @@ export default function ProductDetail() {
               </button>
             </div>
 
-            {/* Delivery Info */}
             <div className="grid grid-cols-2 gap-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
               <div>
                 <p className="text-xs text-slate-600 mb-1">Delivery</p>
@@ -274,13 +262,12 @@ export default function ProductDetail() {
               </div>
               <div>
                 <p className="text-xs text-slate-600 mb-1">Free Shipping</p>
-                <p className="font-semibold text-secondary">On orders > ₹500</p>
+                <p className="font-semibold text-secondary">Orders over 500</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Description & Features */}
         <div className="grid md:grid-cols-2 gap-12 mb-12">
           <div>
             <h2 className="text-2xl font-bold text-secondary mb-6">About this Product</h2>
@@ -297,7 +284,6 @@ export default function ProductDetail() {
             </ul>
           </div>
 
-          {/* Specifications */}
           <div>
             <h2 className="text-2xl font-bold text-secondary mb-6">Product Specifications</h2>
             <div className="space-y-4">
@@ -314,7 +300,6 @@ export default function ProductDetail() {
           </div>
         </div>
 
-        {/* Reviews Section */}
         <div className="border-t border-slate-200 pt-12">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-bold text-secondary">Customer Reviews</h2>
@@ -324,7 +309,6 @@ export default function ProductDetail() {
             </button>
           </div>
 
-          {/* Reviews Summary */}
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl p-8 border border-primary/20">
               <p className="text-slate-600 mb-2">Overall Rating</p>
@@ -371,7 +355,6 @@ export default function ProductDetail() {
             </div>
           </div>
 
-          {/* Individual Reviews */}
           <div className="space-y-6">
             {reviews.map((review) => (
               <div key={review.id} className="border-b border-slate-200 pb-6 last:border-0">
