@@ -20,17 +20,21 @@ const NotFound = () => {
             <AlertTriangle className="w-12 h-12 text-accent" />
           </div>
         </div>
-        
+
         <h1 className="text-6xl font-bold text-secondary mb-2">404</h1>
-        
+
         <p className="text-2xl font-bold text-secondary mb-3">Page Not Found</p>
-        
+
         <p className="text-slate-600 mb-8">
-          Oops! The page you're looking for doesn't exist. It might have been moved or deleted.
+          Oops! The page you're looking for doesn't exist. It might have been
+          moved or deleted.
         </p>
 
         <p className="text-sm text-slate-500 mb-8 break-all">
-          Requested path: <code className="bg-slate-100 px-2 py-1 rounded">{location.pathname}</code>
+          Requested path:{" "}
+          <code className="bg-slate-100 px-2 py-1 rounded">
+            {location.pathname}
+          </code>
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -41,7 +45,7 @@ const NotFound = () => {
             <Home className="w-5 h-5" />
             Back to Home
           </Link>
-          
+
           <Link
             to="/roles"
             className="inline-flex items-center justify-center px-6 py-3 border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary/5 transition-colors"

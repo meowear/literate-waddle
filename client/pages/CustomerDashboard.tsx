@@ -1,6 +1,20 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Search, ShoppingCart, MapPin, Heart, Star, Filter, Menu, X, LogOut, Home, Package, History, Settings } from "lucide-react";
+import {
+  Search,
+  ShoppingCart,
+  MapPin,
+  Heart,
+  Star,
+  Filter,
+  Menu,
+  X,
+  LogOut,
+  Home,
+  Package,
+  History,
+  Settings,
+} from "lucide-react";
 
 interface Product {
   id: number;
@@ -120,7 +134,9 @@ export default function CustomerDashboard() {
   ];
 
   const filteredProducts = products.filter((p) => {
-    const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSearch = p.name
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
     return matchesSearch;
   });
 
@@ -132,7 +148,9 @@ export default function CustomerDashboard() {
           <div className="flex items-center justify-between mb-4 md:mb-0">
             <Link to="/" className="flex items-center gap-2">
               <Package className="w-8 h-8 text-primary" />
-              <span className="text-2xl font-bold text-secondary hidden sm:inline">Live MART</span>
+              <span className="text-2xl font-bold text-secondary hidden sm:inline">
+                Live MART
+              </span>
             </Link>
 
             {/* Search Bar - Hidden on Mobile */}
@@ -158,8 +176,15 @@ export default function CustomerDashboard() {
                   </span>
                 )}
               </button>
-              <button className="md:hidden p-2 hover:bg-slate-100 rounded-lg transition-colors" onClick={() => setSidebarOpen(!sidebarOpen)}>
-                {sidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              <button
+                className="md:hidden p-2 hover:bg-slate-100 rounded-lg transition-colors"
+                onClick={() => setSidebarOpen(!sidebarOpen)}
+              >
+                {sidebarOpen ? (
+                  <X className="w-6 h-6" />
+                ) : (
+                  <Menu className="w-6 h-6" />
+                )}
               </button>
               <button className="hidden md:block p-2 hover:bg-slate-100 rounded-lg transition-colors">
                 <Settings className="w-6 h-6 text-secondary" />
@@ -186,9 +211,11 @@ export default function CustomerDashboard() {
       <div className="container-wide py-8">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Sidebar */}
-          <div className={`${
-            sidebarOpen ? "block" : "hidden"
-          } md:block md:col-span-1`}>
+          <div
+            className={`${
+              sidebarOpen ? "block" : "hidden"
+            } md:block md:col-span-1`}
+          >
             <div className="bg-white rounded-xl border border-slate-200 p-6 sticky top-20">
               <h3 className="text-lg font-bold text-secondary mb-6 flex items-center gap-2">
                 <Filter className="w-5 h-5" />
@@ -206,7 +233,9 @@ export default function CustomerDashboard() {
 
               {/* Categories */}
               <div className="mb-6">
-                <h4 className="font-semibold text-secondary mb-3">Categories</h4>
+                <h4 className="font-semibold text-secondary mb-3">
+                  Categories
+                </h4>
                 <div className="space-y-2">
                   {categories.map((cat) => (
                     <button
@@ -233,8 +262,15 @@ export default function CustomerDashboard() {
                 </h4>
                 <div className="space-y-2">
                   {["< 1 km", "1-2 km", "2-5 km", "5+ km"].map((distance) => (
-                    <label key={distance} className="flex items-center gap-2 cursor-pointer">
-                      <input type="radio" name="distance" className="w-4 h-4 text-primary" />
+                    <label
+                      key={distance}
+                      className="flex items-center gap-2 cursor-pointer"
+                    >
+                      <input
+                        type="radio"
+                        name="distance"
+                        className="w-4 h-4 text-primary"
+                      />
                       <span className="text-sm text-slate-600">{distance}</span>
                     </label>
                   ))}
@@ -317,7 +353,9 @@ export default function CustomerDashboard() {
                     </h3>
 
                     {/* Seller */}
-                    <p className="text-xs text-slate-500 mb-3">{product.seller}</p>
+                    <p className="text-xs text-slate-500 mb-3">
+                      {product.seller}
+                    </p>
 
                     {/* Rating */}
                     <div className="flex items-center gap-1 mb-3">
@@ -373,8 +411,12 @@ export default function CustomerDashboard() {
             {filteredProducts.length === 0 && (
               <div className="text-center py-16">
                 <Package className="w-16 h-16 text-slate-300 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-secondary mb-2">No products found</h3>
-                <p className="text-slate-600">Try adjusting your search or filters</p>
+                <h3 className="text-xl font-bold text-secondary mb-2">
+                  No products found
+                </h3>
+                <p className="text-slate-600">
+                  Try adjusting your search or filters
+                </p>
               </div>
             )}
           </div>

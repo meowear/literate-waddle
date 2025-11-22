@@ -1,5 +1,13 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Package, Users, TrendingUp, MapPin, Clock, Zap } from "lucide-react";
+import {
+  ArrowRight,
+  Package,
+  Users,
+  TrendingUp,
+  MapPin,
+  Clock,
+  Zap,
+} from "lucide-react";
 
 export default function Index() {
   return (
@@ -32,7 +40,9 @@ export default function Index() {
             Ecosystem
           </h1>
           <p className="text-xl text-slate-600 mb-8 leading-relaxed max-w-2xl mx-auto">
-            Seamlessly connect customers, retailers, and wholesalers. Order with confidence, deliver with speed, and grow your business with Live MART.
+            Seamlessly connect customers, retailers, and wholesalers. Order with
+            confidence, deliver with speed, and grow your business with Live
+            MART.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -62,9 +72,12 @@ export default function Index() {
             <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
               <Zap className="w-6 h-6 text-primary" />
             </div>
-            <h3 className="text-xl font-bold text-secondary mb-3">Fast Delivery</h3>
+            <h3 className="text-xl font-bold text-secondary mb-3">
+              Fast Delivery
+            </h3>
             <p className="text-slate-600">
-              Real-time order tracking and notifications keep you updated every step of the way.
+              Real-time order tracking and notifications keep you updated every
+              step of the way.
             </p>
           </div>
 
@@ -73,9 +86,12 @@ export default function Index() {
             <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
               <MapPin className="w-6 h-6 text-primary" />
             </div>
-            <h3 className="text-xl font-bold text-secondary mb-3">Local First</h3>
+            <h3 className="text-xl font-bold text-secondary mb-3">
+              Local First
+            </h3>
             <p className="text-slate-600">
-              Discover region-specific products and support local businesses in your community.
+              Discover region-specific products and support local businesses in
+              your community.
             </p>
           </div>
 
@@ -84,9 +100,12 @@ export default function Index() {
             <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
               <Users className="w-6 h-6 text-primary" />
             </div>
-            <h3 className="text-xl font-bold text-secondary mb-3">Multi-Role Platform</h3>
+            <h3 className="text-xl font-bold text-secondary mb-3">
+              Multi-Role Platform
+            </h3>
             <p className="text-slate-600">
-              Seamless experience for customers, retailers, and wholesalers all in one place.
+              Seamless experience for customers, retailers, and wholesalers all
+              in one place.
             </p>
           </div>
 
@@ -95,9 +114,12 @@ export default function Index() {
             <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
               <Clock className="w-6 h-6 text-primary" />
             </div>
-            <h3 className="text-xl font-bold text-secondary mb-3">Flexible Ordering</h3>
+            <h3 className="text-xl font-bold text-secondary mb-3">
+              Flexible Ordering
+            </h3>
             <p className="text-slate-600">
-              Online and offline ordering options with calendar integration and reminders.
+              Online and offline ordering options with calendar integration and
+              reminders.
             </p>
           </div>
 
@@ -106,9 +128,12 @@ export default function Index() {
             <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
               <TrendingUp className="w-6 h-6 text-primary" />
             </div>
-            <h3 className="text-xl font-bold text-secondary mb-3">Inventory Control</h3>
+            <h3 className="text-xl font-bold text-secondary mb-3">
+              Inventory Control
+            </h3>
             <p className="text-slate-600">
-              Real-time stock updates and intelligent inventory management for retailers.
+              Real-time stock updates and intelligent inventory management for
+              retailers.
             </p>
           </div>
 
@@ -117,9 +142,12 @@ export default function Index() {
             <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
               <Package className="w-6 h-6 text-primary" />
             </div>
-            <h3 className="text-xl font-bold text-secondary mb-3">Transparent Pricing</h3>
+            <h3 className="text-xl font-bold text-secondary mb-3">
+              Transparent Pricing
+            </h3>
             <p className="text-slate-600">
-              Clear, competitive pricing with secure payment options online and offline.
+              Clear, competitive pricing with secure payment options online and
+              offline.
             </p>
           </div>
         </div>
@@ -141,7 +169,9 @@ export default function Index() {
               <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-colors">
                 <Users className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="text-2xl font-bold text-secondary mb-3">For Customers</h3>
+              <h3 className="text-2xl font-bold text-secondary mb-3">
+                For Customers
+              </h3>
               <ul className="space-y-2 text-slate-600 mb-6">
                 <li>✓ Browse and search products</li>
                 <li>✓ Smart filtering by price & location</li>
@@ -164,7 +194,9 @@ export default function Index() {
               <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-colors">
                 <Package className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="text-2xl font-bold text-secondary mb-3">For Retailers</h3>
+              <h3 className="text-2xl font-bold text-secondary mb-3">
+                For Retailers
+              </h3>
               <ul className="space-y-2 text-slate-600 mb-6">
                 <li>✓ Manage inventory easily</li>
                 <li>✓ Track customer orders</li>
@@ -187,7 +219,9 @@ export default function Index() {
               <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-colors">
                 <TrendingUp className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="text-2xl font-bold text-secondary mb-3">For Wholesalers</h3>
+              <h3 className="text-2xl font-bold text-secondary mb-3">
+                For Wholesalers
+              </h3>
               <ul className="space-y-2 text-slate-600 mb-6">
                 <li>✓ Distribute to retailers</li>
                 <li>✓ Set competitive pricing</li>
@@ -209,7 +243,8 @@ export default function Index() {
             Ready to Transform Your Shopping?
           </h2>
           <p className="text-lg text-slate-600 mb-8">
-            Join thousands of customers, retailers, and wholesalers already using Live MART.
+            Join thousands of customers, retailers, and wholesalers already
+            using Live MART.
           </p>
           <Link
             to="/roles"
@@ -227,39 +262,84 @@ export default function Index() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Package className="w-6 h-6 text-primary" />
-                <span className="text-xl font-bold text-secondary">Live MART</span>
+                <span className="text-xl font-bold text-secondary">
+                  Live MART
+                </span>
               </div>
               <p className="text-slate-600 text-sm">
                 Connecting communities through seamless online delivery.
               </p>
             </div>
             <div>
-              <h4 className="font-semibold text-secondary mb-4">For Customers</h4>
+              <h4 className="font-semibold text-secondary mb-4">
+                For Customers
+              </h4>
               <ul className="space-y-2 text-sm text-slate-600">
-                <li><a href="#" className="hover:text-primary transition-colors">Browse Products</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Track Orders</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Recommendations</a></li>
+                <li>
+                  <a href="#" className="hover:text-primary transition-colors">
+                    Browse Products
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-primary transition-colors">
+                    Track Orders
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-primary transition-colors">
+                    Recommendations
+                  </a>
+                </li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-secondary mb-4">For Business</h4>
+              <h4 className="font-semibold text-secondary mb-4">
+                For Business
+              </h4>
               <ul className="space-y-2 text-sm text-slate-600">
-                <li><a href="#" className="hover:text-primary transition-colors">Sell With Us</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Become Retailer</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Wholesale</a></li>
+                <li>
+                  <a href="#" className="hover:text-primary transition-colors">
+                    Sell With Us
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-primary transition-colors">
+                    Become Retailer
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-primary transition-colors">
+                    Wholesale
+                  </a>
+                </li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold text-secondary mb-4">Company</h4>
               <ul className="space-y-2 text-sm text-slate-600">
-                <li><a href="#" className="hover:text-primary transition-colors">About Us</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Contact</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Privacy</a></li>
+                <li>
+                  <a href="#" className="hover:text-primary transition-colors">
+                    About Us
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-primary transition-colors">
+                    Contact
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-primary transition-colors">
+                    Privacy
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
           <div className="border-t border-slate-200 pt-8 text-center text-sm text-slate-600">
-            <p>&copy; 2025 Live MART. All rights reserved. Empowering local commerce.</p>
+            <p>
+              &copy; 2025 Live MART. All rights reserved. Empowering local
+              commerce.
+            </p>
           </div>
         </div>
       </footer>

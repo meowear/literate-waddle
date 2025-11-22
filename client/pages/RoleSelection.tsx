@@ -1,9 +1,23 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Check, Package, Users, TrendingUp, Mail, Lock, User, Phone, MapPin, Building } from "lucide-react";
+import {
+  ArrowLeft,
+  Check,
+  Package,
+  Users,
+  TrendingUp,
+  Mail,
+  Lock,
+  User,
+  Phone,
+  MapPin,
+  Building,
+} from "lucide-react";
 
 export default function RoleSelection() {
-  const [selectedRole, setSelectedRole] = useState<"customer" | "retailer" | "wholesaler" | null>(null);
+  const [selectedRole, setSelectedRole] = useState<
+    "customer" | "retailer" | "wholesaler" | null
+  >(null);
   const [step, setStep] = useState<"role" | "signup">("role");
 
   const roles = [
@@ -48,7 +62,7 @@ export default function RoleSelection() {
     },
   ];
 
-  const selectedRoleData = roles.find(r => r.id === selectedRole);
+  const selectedRoleData = roles.find((r) => r.id === selectedRole);
   const Icon = selectedRoleData?.icon;
 
   return (
@@ -56,7 +70,10 @@ export default function RoleSelection() {
       {/* Header */}
       <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200">
         <div className="container-wide py-4 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 text-slate-600 hover:text-primary transition-colors">
+          <Link
+            to="/"
+            className="flex items-center gap-2 text-slate-600 hover:text-primary transition-colors"
+          >
             <ArrowLeft className="w-5 h-5" />
             <span>Back</span>
           </Link>
@@ -89,22 +106,33 @@ export default function RoleSelection() {
                       : "border-slate-200 hover:border-primary/50 bg-white"
                   }`}
                 >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${role.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity`} />
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${role.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity`}
+                  />
                   <div className="relative">
-                    <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 transition-all ${
-                      selectedRole === role.id
-                        ? `bg-gradient-to-br ${role.color} text-white`
-                        : "bg-slate-100 text-slate-600 group-hover:bg-slate-200"
-                    }`}>
+                    <div
+                      className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 transition-all ${
+                        selectedRole === role.id
+                          ? `bg-gradient-to-br ${role.color} text-white`
+                          : "bg-slate-100 text-slate-600 group-hover:bg-slate-200"
+                      }`}
+                    >
                       <role.icon className="w-7 h-7" />
                     </div>
 
-                    <h3 className="text-2xl font-bold text-secondary mb-2">{role.title}</h3>
-                    <p className="text-slate-600 text-sm mb-6">{role.description}</p>
+                    <h3 className="text-2xl font-bold text-secondary mb-2">
+                      {role.title}
+                    </h3>
+                    <p className="text-slate-600 text-sm mb-6">
+                      {role.description}
+                    </p>
 
                     <ul className="space-y-2 mb-6">
                       {role.benefits.map((benefit) => (
-                        <li key={benefit} className="flex items-start gap-2 text-sm text-slate-600">
+                        <li
+                          key={benefit}
+                          className="flex items-start gap-2 text-sm text-slate-600"
+                        >
                           <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                           <span>{benefit}</span>
                         </li>
@@ -145,13 +173,17 @@ export default function RoleSelection() {
 
             <div className="bg-white rounded-2xl border border-slate-200 p-8 md:p-12">
               <div className="mb-8">
-                <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${selectedRoleData?.color} text-white flex items-center justify-center mb-4`}>
+                <div
+                  className={`w-16 h-16 rounded-xl bg-gradient-to-br ${selectedRoleData?.color} text-white flex items-center justify-center mb-4`}
+                >
                   {Icon && <Icon className="w-8 h-8" />}
                 </div>
                 <h2 className="text-3xl font-bold text-secondary mb-2">
                   Sign Up as {selectedRoleData?.title}
                 </h2>
-                <p className="text-slate-600">{selectedRoleData?.description}</p>
+                <p className="text-slate-600">
+                  {selectedRoleData?.description}
+                </p>
               </div>
 
               <form className="space-y-6">
@@ -254,7 +286,10 @@ export default function RoleSelection() {
                     id="terms"
                     className="w-5 h-5 rounded border-slate-300 text-primary focus:ring-primary cursor-pointer mt-0.5"
                   />
-                  <label htmlFor="terms" className="text-sm text-slate-600 cursor-pointer">
+                  <label
+                    htmlFor="terms"
+                    className="text-sm text-slate-600 cursor-pointer"
+                  >
                     I agree to the Terms of Service and Privacy Policy
                   </label>
                 </div>
@@ -280,7 +315,10 @@ export default function RoleSelection() {
                 {/* Login Link */}
                 <div className="text-center text-slate-600">
                   Already have an account?{" "}
-                  <a href="#" className="text-primary font-semibold hover:underline">
+                  <a
+                    href="#"
+                    className="text-primary font-semibold hover:underline"
+                  >
                     Sign In
                   </a>
                 </div>

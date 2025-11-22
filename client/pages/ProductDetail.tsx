@@ -1,6 +1,16 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowLeft, Heart, Share2, MapPin, Clock, Star, ShoppingCart, MessageSquare, AlertCircle } from "lucide-react";
+import {
+  ArrowLeft,
+  Heart,
+  Share2,
+  MapPin,
+  Clock,
+  Star,
+  ShoppingCart,
+  MessageSquare,
+  AlertCircle,
+} from "lucide-react";
 
 interface Review {
   id: number;
@@ -41,11 +51,11 @@ export default function ProductDetail() {
       "Perfect for daily consumption",
     ],
     specifications: {
-      "Weight": "1 kg",
-      "Color": "Red & Green mix",
-      "Origin": "Local Orchards",
+      Weight: "1 kg",
+      Color: "Red & Green mix",
+      Origin: "Local Orchards",
       "Shelf Life": "7-10 days when refrigerated",
-      "Certification": "Organic Certified",
+      Certification: "Organic Certified",
     },
   };
 
@@ -135,8 +145,12 @@ export default function ProductDetail() {
                     />
                   ))}
                 </div>
-                <span className="font-bold text-secondary">{product.rating}</span>
-                <span className="text-slate-600">({product.reviews} reviews)</span>
+                <span className="font-bold text-secondary">
+                  {product.rating}
+                </span>
+                <span className="text-slate-600">
+                  ({product.reviews} reviews)
+                </span>
               </div>
 
               <div className="flex items-center gap-2 text-slate-600">
@@ -163,7 +177,9 @@ export default function ProductDetail() {
 
             <div className="mb-8">
               <div className="flex items-baseline gap-3 mb-2">
-                <span className="text-4xl font-bold text-primary">₹{product.price}</span>
+                <span className="text-4xl font-bold text-primary">
+                  ₹{product.price}
+                </span>
                 <span className="text-2xl text-slate-500 line-through">
                   ₹{product.originalPrice}
                 </span>
@@ -177,7 +193,9 @@ export default function ProductDetail() {
               <div className="flex items-center justify-between mb-3">
                 <div>
                   <p className="text-sm text-slate-600 mb-1">Sold by</p>
-                  <p className="font-bold text-secondary text-lg">{product.seller}</p>
+                  <p className="font-bold text-secondary text-lg">
+                    {product.seller}
+                  </p>
                 </div>
                 <div className="text-right">
                   <div className="flex items-center gap-1 mb-1">
@@ -242,7 +260,9 @@ export default function ProductDetail() {
                       : "border-slate-200 text-slate-600 hover:border-primary"
                   }`}
                 >
-                  <Heart className={`w-5 h-5 mx-auto ${liked ? "fill-current" : ""}`} />
+                  <Heart
+                    className={`w-5 h-5 mx-auto ${liked ? "fill-current" : ""}`}
+                  />
                 </button>
               </div>
 
@@ -270,10 +290,16 @@ export default function ProductDetail() {
 
         <div className="grid md:grid-cols-2 gap-12 mb-12">
           <div>
-            <h2 className="text-2xl font-bold text-secondary mb-6">About this Product</h2>
-            <p className="text-slate-600 leading-relaxed mb-6">{product.description}</p>
+            <h2 className="text-2xl font-bold text-secondary mb-6">
+              About this Product
+            </h2>
+            <p className="text-slate-600 leading-relaxed mb-6">
+              {product.description}
+            </p>
 
-            <h3 className="text-lg font-bold text-secondary mb-4">Why You'll Love It</h3>
+            <h3 className="text-lg font-bold text-secondary mb-4">
+              Why You'll Love It
+            </h3>
             <ul className="space-y-3">
               {product.features.map((feature, idx) => (
                 <li key={idx} className="flex items-start gap-3 text-slate-600">
@@ -285,7 +311,9 @@ export default function ProductDetail() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-secondary mb-6">Product Specifications</h2>
+            <h2 className="text-2xl font-bold text-secondary mb-6">
+              Product Specifications
+            </h2>
             <div className="space-y-4">
               {Object.entries(product.specifications).map(([key, value]) => (
                 <div
@@ -302,7 +330,9 @@ export default function ProductDetail() {
 
         <div className="border-t border-slate-200 pt-12">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-bold text-secondary">Customer Reviews</h2>
+            <h2 className="text-2xl font-bold text-secondary">
+              Customer Reviews
+            </h2>
             <button className="px-6 py-2 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-all flex items-center gap-2">
               <MessageSquare className="w-4 h-4" />
               Write a Review
@@ -313,7 +343,9 @@ export default function ProductDetail() {
             <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl p-8 border border-primary/20">
               <p className="text-slate-600 mb-2">Overall Rating</p>
               <div className="flex items-center gap-4">
-                <div className="text-4xl font-bold text-primary">{product.rating}</div>
+                <div className="text-4xl font-bold text-primary">
+                  {product.rating}
+                </div>
                 <div>
                   <div className="flex gap-1 mb-2">
                     {[...Array(5)].map((_, i) => (
@@ -327,13 +359,17 @@ export default function ProductDetail() {
                       />
                     ))}
                   </div>
-                  <p className="text-sm text-slate-600">Based on {product.reviews} reviews</p>
+                  <p className="text-sm text-slate-600">
+                    Based on {product.reviews} reviews
+                  </p>
                 </div>
               </div>
             </div>
 
             <div>
-              <p className="text-sm font-semibold text-slate-600 mb-3">Rating Distribution</p>
+              <p className="text-sm font-semibold text-slate-600 mb-3">
+                Rating Distribution
+              </p>
               {[5, 4, 3, 2, 1].map((star) => (
                 <div key={star} className="flex items-center gap-2 mb-2">
                   <span className="text-xs text-slate-600 w-4">{star}★</span>
@@ -348,16 +384,22 @@ export default function ProductDetail() {
             </div>
 
             <div className="bg-success/10 rounded-xl p-8 border border-success/20">
-              <p className="text-success font-bold text-lg mb-2">✓ Verified Seller</p>
+              <p className="text-success font-bold text-lg mb-2">
+                ✓ Verified Seller
+              </p>
               <p className="text-slate-600 text-sm">
-                This product has been verified by Live MART to ensure authenticity and quality.
+                This product has been verified by Live MART to ensure
+                authenticity and quality.
               </p>
             </div>
           </div>
 
           <div className="space-y-6">
             {reviews.map((review) => (
-              <div key={review.id} className="border-b border-slate-200 pb-6 last:border-0">
+              <div
+                key={review.id}
+                className="border-b border-slate-200 pb-6 last:border-0"
+              >
                 <div className="flex items-start justify-between mb-3">
                   <div>
                     <p className="font-bold text-secondary">{review.author}</p>
@@ -374,7 +416,9 @@ export default function ProductDetail() {
                           />
                         ))}
                       </div>
-                      <span className="text-sm text-slate-600">{review.date}</span>
+                      <span className="text-sm text-slate-600">
+                        {review.date}
+                      </span>
                     </div>
                   </div>
                   <span className="text-sm font-semibold text-slate-600">
