@@ -42,11 +42,11 @@ export default function ProductDetail() {
       "Perfect for daily consumption",
     ],
     specifications: {
-      Weight: "1 kg",
-      Color: "Red & Green mix",
-      Origin: "Local Orchards",
-      Shelf Life: "7-10 days when refrigerated",
-      Certification: "Organic Certified",
+      "Weight": "1 kg",
+      "Color": "Red & Green mix",
+      "Origin": "Local Orchards",
+      "Shelf Life": "7-10 days when refrigerated",
+      "Certification": "Organic Certified",
     },
   };
 
@@ -78,7 +78,6 @@ export default function ProductDetail() {
   ];
 
   const handleAddToCart = () => {
-    // In a real app, this would add to cart
     console.log(`Added ${quantity} items to cart`);
   };
 
