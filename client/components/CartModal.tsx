@@ -15,7 +15,11 @@ interface CartModalProps {
   items?: CartItem[];
 }
 
-export default function CartModal({ isOpen, onClose, items = [] }: CartModalProps) {
+export default function CartModal({
+  isOpen,
+  onClose,
+  items = [],
+}: CartModalProps) {
   if (!isOpen) return null;
 
   const sampleItems: CartItem[] = [
@@ -43,17 +47,17 @@ export default function CartModal({ isOpen, onClose, items = [] }: CartModalProp
   ];
 
   const cartItems = items.length > 0 ? items : sampleItems;
-  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const subtotal = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0,
+  );
   const tax = Math.round(subtotal * 0.05);
   const total = subtotal + tax;
 
   return (
     <>
       {/* Overlay */}
-      <div
-        className="fixed inset-0 bg-black/50 z-40"
-        onClick={onClose}
-      />
+      <div className="fixed inset-0 bg-black/50 z-40" onClick={onClose} />
 
       {/* Modal */}
       <div className="fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-xl z-50 flex flex-col overflow-hidden">

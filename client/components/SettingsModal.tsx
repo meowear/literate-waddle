@@ -1,4 +1,15 @@
-import { X, User, Lock, Bell, MapPin, CreditCard, HelpCircle, LogOut, Moon, Sun } from "lucide-react";
+import {
+  X,
+  User,
+  Lock,
+  Bell,
+  MapPin,
+  CreditCard,
+  HelpCircle,
+  LogOut,
+  Moon,
+  Sun,
+} from "lucide-react";
 import { useState } from "react";
 
 interface SettingsModalProps {
@@ -8,7 +19,9 @@ interface SettingsModalProps {
 
 export default function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [activeTab, setActiveTab] = useState<"profile" | "preferences" | "account" | "support">("profile");
+  const [activeTab, setActiveTab] = useState<
+    "profile" | "preferences" | "account" | "support"
+  >("profile");
 
   if (!isOpen) return null;
 
@@ -22,10 +35,7 @@ export default function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
   return (
     <>
       {/* Overlay */}
-      <div
-        className="fixed inset-0 bg-black/50 z-40"
-        onClick={onClose}
-      />
+      <div className="fixed inset-0 bg-black/50 z-40" onClick={onClose} />
 
       {/* Modal */}
       <div className="fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-xl z-50 flex flex-col overflow-hidden">
@@ -143,19 +153,35 @@ export default function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
               </div>
 
               <div>
-                <p className="font-semibold text-secondary mb-3">Notifications</p>
+                <p className="font-semibold text-secondary mb-3">
+                  Notifications
+                </p>
                 <div className="space-y-3">
                   <label className="flex items-center gap-3 cursor-pointer">
-                    <input type="checkbox" defaultChecked className="w-4 h-4 text-primary rounded" />
+                    <input
+                      type="checkbox"
+                      defaultChecked
+                      className="w-4 h-4 text-primary rounded"
+                    />
                     <span className="text-slate-600">Order updates</span>
                   </label>
                   <label className="flex items-center gap-3 cursor-pointer">
-                    <input type="checkbox" defaultChecked className="w-4 h-4 text-primary rounded" />
+                    <input
+                      type="checkbox"
+                      defaultChecked
+                      className="w-4 h-4 text-primary rounded"
+                    />
                     <span className="text-slate-600">Promotional offers</span>
                   </label>
                   <label className="flex items-center gap-3 cursor-pointer">
-                    <input type="checkbox" defaultChecked className="w-4 h-4 text-primary rounded" />
-                    <span className="text-slate-600">Product recommendations</span>
+                    <input
+                      type="checkbox"
+                      defaultChecked
+                      className="w-4 h-4 text-primary rounded"
+                    />
+                    <span className="text-slate-600">
+                      Product recommendations
+                    </span>
                   </label>
                 </div>
               </div>
@@ -166,7 +192,9 @@ export default function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
                 </label>
                 <div className="flex items-center gap-2 p-3 bg-slate-50 rounded-lg border border-slate-200">
                   <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span className="text-slate-700">Downtown Market Area, City</span>
+                  <span className="text-slate-700">
+                    Downtown Market Area, City
+                  </span>
                 </div>
               </div>
             </div>
@@ -176,13 +204,19 @@ export default function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
           {activeTab === "account" && (
             <div className="space-y-6">
               <div>
-                <p className="font-semibold text-secondary mb-3">Payment Methods</p>
+                <p className="font-semibold text-secondary mb-3">
+                  Payment Methods
+                </p>
                 <div className="p-4 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <CreditCard className="w-5 h-5 text-primary" />
                     <div>
-                      <p className="font-semibold text-secondary">Credit Card</p>
-                      <p className="text-sm text-slate-600">•••• •••• •••• 4242</p>
+                      <p className="font-semibold text-secondary">
+                        Credit Card
+                      </p>
+                      <p className="text-sm text-slate-600">
+                        •••• •••• •••• 4242
+                      </p>
                     </div>
                   </div>
                   <button className="text-primary hover:underline text-sm font-semibold">
@@ -199,7 +233,9 @@ export default function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
               </div>
 
               <div>
-                <p className="font-semibold text-secondary mb-3">Account Status</p>
+                <p className="font-semibold text-secondary mb-3">
+                  Account Status
+                </p>
                 <div className="p-4 bg-green-50 rounded-lg border border-green-200">
                   <p className="text-sm text-green-700">
                     ✓ Your account is active and verified
@@ -222,17 +258,27 @@ export default function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
               </div>
 
               <div className="p-4 bg-slate-50 rounded-lg border border-slate-200 hover:border-primary transition-colors cursor-pointer">
-                <p className="font-semibold text-secondary mb-1">Contact Support</p>
-                <p className="text-sm text-slate-600">Chat with our support team</p>
+                <p className="font-semibold text-secondary mb-1">
+                  Contact Support
+                </p>
+                <p className="text-sm text-slate-600">
+                  Chat with our support team
+                </p>
               </div>
 
               <div className="p-4 bg-slate-50 rounded-lg border border-slate-200 hover:border-primary transition-colors cursor-pointer">
-                <p className="font-semibold text-secondary mb-1">Report an Issue</p>
-                <p className="text-sm text-slate-600">Let us know about problems</p>
+                <p className="font-semibold text-secondary mb-1">
+                  Report an Issue
+                </p>
+                <p className="text-sm text-slate-600">
+                  Let us know about problems
+                </p>
               </div>
 
               <div className="p-4 bg-slate-50 rounded-lg border border-slate-200 hover:border-primary transition-colors cursor-pointer">
-                <p className="font-semibold text-secondary mb-1">Terms & Privacy</p>
+                <p className="font-semibold text-secondary mb-1">
+                  Terms & Privacy
+                </p>
                 <p className="text-sm text-slate-600">Read our policies</p>
               </div>
             </div>

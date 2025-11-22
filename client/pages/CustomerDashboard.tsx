@@ -435,7 +435,10 @@ export default function CustomerDashboard() {
 
       {/* Modals */}
       <CartModal isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
-      <SettingsModal isOpen={isSettingsOpen} onClose={() => setIsSettingsOpen(false)} />
+      <SettingsModal
+        isOpen={isSettingsOpen}
+        onClose={() => setIsSettingsOpen(false)}
+      />
     </div>
   );
 }
