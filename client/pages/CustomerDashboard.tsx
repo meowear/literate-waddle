@@ -15,6 +15,8 @@ import {
   History,
   Settings,
 } from "lucide-react";
+import CartModal from "@/components/CartModal";
+import SettingsModal from "@/components/SettingsModal";
 
 interface Product {
   id: number;
