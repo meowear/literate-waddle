@@ -138,9 +138,13 @@ export default function CartModal({
               <span className="font-bold text-secondary">Total</span>
               <span className="font-bold text-primary text-xl">₹{total}</span>
             </div>
-            <button className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-bold hover:bg-primary/90 transition-all">
+            <Link
+              to="/checkout"
+              onClick={onClose}
+              className="block w-full py-3 bg-primary text-primary-foreground rounded-lg font-bold hover:bg-primary/90 transition-all text-center"
+            >
               Proceed to Checkout
-            </button>
+            </Link>
           </div>
         )}
       </div>
