@@ -1,6 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, MapPin, Clock, CreditCard, Truck, Package, CheckCircle } from "lucide-react";
+import {
+  ArrowLeft,
+  MapPin,
+  Clock,
+  CreditCard,
+  Truck,
+  Package,
+  CheckCircle,
+} from "lucide-react";
 
 interface CheckoutItem {
   id: number;
@@ -11,7 +19,9 @@ interface CheckoutItem {
 }
 
 export default function Checkout() {
-  const [step, setStep] = useState<"cart" | "delivery" | "payment" | "confirmation">("cart");
+  const [step, setStep] = useState<
+    "cart" | "delivery" | "payment" | "confirmation"
+  >("cart");
   const [orderType, setOrderType] = useState<"online" | "offline">("online");
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
@@ -40,7 +50,10 @@ export default function Checkout() {
     },
   ];
 
-  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const subtotal = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0,
+  );
   const tax = Math.round(subtotal * 0.05);
   const delivery = orderType === "online" ? 50 : 0;
   const total = subtotal + tax + delivery;
@@ -52,7 +65,7 @@ export default function Checkout() {
     { id: "confirmation", name: "Confirmation", icon: CheckCircle },
   ];
 
-  const StepIcon = steps.find(s => s.id === step)?.icon || Package;
+  const StepIcon = steps.find((s) => s.id === step)?.icon || Package;
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -91,8 +104,8 @@ export default function Checkout() {
                           isCurrent
                             ? "bg-primary text-white scale-110"
                             : isCompleted
-                            ? "bg-success text-white"
-                            : "bg-slate-200 text-slate-600"
+                              ? "bg-success text-white"
+                              : "bg-slate-200 text-slate-600"
                         }`}
                       >
                         <StepIconComponent className="w-6 h-6" />
@@ -120,7 +133,9 @@ export default function Checkout() {
             {/* Cart Review Step */}
             {step === "cart" && (
               <div className="bg-white rounded-xl border border-slate-200 p-6 mb-8">
-                <h2 className="text-2xl font-bold text-secondary mb-6">Review Your Order</h2>
+                <h2 className="text-2xl font-bold text-secondary mb-6">
+                  Review Your Order
+                </h2>
                 <div className="space-y-4 mb-6">
                   {cartItems.map((item) => (
                     <div
@@ -130,11 +145,17 @@ export default function Checkout() {
                       <div className="flex items-center gap-4">
                         <span className="text-4xl">{item.image}</span>
                         <div>
-                          <p className="font-semibold text-secondary">{item.name}</p>
-                          <p className="text-sm text-slate-600">Qty: {item.quantity}</p>
+                          <p className="font-semibold text-secondary">
+                            {item.name}
+                          </p>
+                          <p className="text-sm text-slate-600">
+                            Qty: {item.quantity}
+                          </p>
                         </div>
                       </div>
-                      <p className="font-bold text-primary">₹{item.price * item.quantity}</p>
+                      <p className="font-bold text-primary">
+                        ₹{item.price * item.quantity}
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -162,39 +183,73 @@ export default function Checkout() {
             {/* Delivery Step */}
             {step === "delivery" && (
               <div className="bg-white rounded-xl border border-slate-200 p-6 mb-8">
-                <h2 className="text-2xl font-bold text-secondary mb-6">Delivery Method</h2>
+                <h2 className="text-2xl font-bold text-secondary mb-6">
+                  Delivery Method
+                </h2>
 
                 {/* Online vs Offline */}
                 <div className="space-y-4 mb-8">
-                  <label className="flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all" style={{borderColor: orderType === "online" ? "var(--primary)" : "var(--border)"}}>
+                  <label
+                    className="flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all"
+                    style={{
+                      borderColor:
+                        orderType === "online"
+                          ? "var(--primary)"
+                          : "var(--border)",
+                    }}
+                  >
                     <input
                       type="radio"
                       name="orderType"
                       value="online"
                       checked={orderType === "online"}
-                      onChange={(e) => setOrderType(e.target.value as "online" | "offline")}
+                      onChange={(e) =>
+                        setOrderType(e.target.value as "online" | "offline")
+                      }
                       className="w-5 h-5"
                     />
                     <div className="ml-4 flex-1">
-                      <p className="font-bold text-secondary">Online Order - Quick Delivery</p>
-                      <p className="text-sm text-slate-600">Today within 2-4 hours</p>
-                      <p className="text-primary font-bold mt-1">₹{delivery} delivery charge</p>
+                      <p className="font-bold text-secondary">
+                        Online Order - Quick Delivery
+                      </p>
+                      <p className="text-sm text-slate-600">
+                        Today within 2-4 hours
+                      </p>
+                      <p className="text-primary font-bold mt-1">
+                        ₹{delivery} delivery charge
+                      </p>
                     </div>
                   </label>
 
-                  <label className="flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all" style={{borderColor: orderType === "offline" ? "var(--primary)" : "var(--border)"}}>
+                  <label
+                    className="flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all"
+                    style={{
+                      borderColor:
+                        orderType === "offline"
+                          ? "var(--primary)"
+                          : "var(--border)",
+                    }}
+                  >
                     <input
                       type="radio"
                       name="orderType"
                       value="offline"
                       checked={orderType === "offline"}
-                      onChange={(e) => setOrderType(e.target.value as "online" | "offline")}
+                      onChange={(e) =>
+                        setOrderType(e.target.value as "online" | "offline")
+                      }
                       className="w-5 h-5"
                     />
                     <div className="ml-4 flex-1">
-                      <p className="font-bold text-secondary">Offline Order - Schedule Pickup</p>
-                      <p className="text-sm text-slate-600">Choose a date and time</p>
-                      <p className="text-success font-bold mt-1">Free with reminder</p>
+                      <p className="font-bold text-secondary">
+                        Offline Order - Schedule Pickup
+                      </p>
+                      <p className="text-sm text-slate-600">
+                        Choose a date and time
+                      </p>
+                      <p className="text-success font-bold mt-1">
+                        Free with reminder
+                      </p>
                     </div>
                   </label>
                 </div>
@@ -233,7 +288,9 @@ export default function Checkout() {
                     </div>
                     <div className="flex items-center gap-2 text-sm text-slate-600 bg-blue-50 p-3 rounded border border-blue-200">
                       <Clock className="w-5 h-5 text-blue-600" />
-                      <span>We'll send you a reminder 1 hour before pickup time</span>
+                      <span>
+                        We'll send you a reminder 1 hour before pickup time
+                      </span>
                     </div>
                   </div>
                 )}
@@ -243,8 +300,12 @@ export default function Checkout() {
                   <div className="flex items-start gap-3 mb-4">
                     <MapPin className="w-5 h-5 text-primary mt-1" />
                     <div>
-                      <p className="font-semibold text-secondary">Delivery Address</p>
-                      <p className="text-slate-600">Downtown Market Area, City</p>
+                      <p className="font-semibold text-secondary">
+                        Delivery Address
+                      </p>
+                      <p className="text-slate-600">
+                        Downtown Market Area, City
+                      </p>
                     </div>
                   </div>
                   <button className="text-primary font-semibold text-sm hover:underline">
@@ -261,7 +322,10 @@ export default function Checkout() {
                   </button>
                   <button
                     onClick={() => setStep("payment")}
-                    disabled={orderType === "offline" && (!selectedDate || !selectedTime)}
+                    disabled={
+                      orderType === "offline" &&
+                      (!selectedDate || !selectedTime)
+                    }
                     className="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-bold hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                   >
                     Continue to Payment
@@ -273,7 +337,9 @@ export default function Checkout() {
             {/* Payment Step */}
             {step === "payment" && (
               <div className="bg-white rounded-xl border border-slate-200 p-6 mb-8">
-                <h2 className="text-2xl font-bold text-secondary mb-6">Payment Method</h2>
+                <h2 className="text-2xl font-bold text-secondary mb-6">
+                  Payment Method
+                </h2>
 
                 <div className="space-y-4 mb-8">
                   <label className="flex items-center p-4 border-2 border-primary bg-primary/5 rounded-lg cursor-pointer">
@@ -284,8 +350,12 @@ export default function Checkout() {
                       className="w-5 h-5"
                     />
                     <div className="ml-4 flex-1">
-                      <p className="font-bold text-secondary">Credit/Debit Card</p>
-                      <p className="text-sm text-slate-600">Visa, Mastercard, RuPay</p>
+                      <p className="font-bold text-secondary">
+                        Credit/Debit Card
+                      </p>
+                      <p className="text-sm text-slate-600">
+                        Visa, Mastercard, RuPay
+                      </p>
                     </div>
                   </label>
 
@@ -293,15 +363,21 @@ export default function Checkout() {
                     <input type="radio" name="payment" className="w-5 h-5" />
                     <div className="ml-4 flex-1">
                       <p className="font-bold text-secondary">Digital Wallet</p>
-                      <p className="text-sm text-slate-600">Google Pay, PhonePe, PayTM</p>
+                      <p className="text-sm text-slate-600">
+                        Google Pay, PhonePe, PayTM
+                      </p>
                     </div>
                   </label>
 
                   <label className="flex items-center p-4 border-2 border-slate-200 rounded-lg cursor-pointer hover:border-primary/50 transition-colors">
                     <input type="radio" name="payment" className="w-5 h-5" />
                     <div className="ml-4 flex-1">
-                      <p className="font-bold text-secondary">Cash on Delivery</p>
-                      <p className="text-sm text-slate-600">Pay when your order arrives</p>
+                      <p className="font-bold text-secondary">
+                        Cash on Delivery
+                      </p>
+                      <p className="text-sm text-slate-600">
+                        Pay when your order arrives
+                      </p>
                     </div>
                   </label>
                 </div>
@@ -367,14 +443,19 @@ export default function Checkout() {
                 <div className="w-20 h-20 bg-success/20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <CheckCircle className="w-10 h-10 text-success" />
                 </div>
-                <h2 className="text-3xl font-bold text-secondary mb-2">Order Confirmed!</h2>
+                <h2 className="text-3xl font-bold text-secondary mb-2">
+                  Order Confirmed!
+                </h2>
                 <p className="text-slate-600 mb-6">
-                  Thank you for your order. You'll receive updates via email and SMS.
+                  Thank you for your order. You'll receive updates via email and
+                  SMS.
                 </p>
 
                 <div className="bg-slate-50 p-6 rounded-lg border border-slate-200 mb-8 text-left">
                   <p className="text-sm text-slate-600 mb-2">Order Number</p>
-                  <p className="text-2xl font-bold text-secondary mb-6">#LM-2024-123456</p>
+                  <p className="text-2xl font-bold text-secondary mb-6">
+                    #LM-2024-123456
+                  </p>
 
                   <div className="space-y-3">
                     <div className="flex justify-between">
@@ -417,7 +498,9 @@ export default function Checkout() {
           {/* Order Summary Sidebar */}
           <div className="order-1 md:order-2">
             <div className="bg-white rounded-xl border border-slate-200 p-6 sticky top-24">
-              <h3 className="text-lg font-bold text-secondary mb-6">Order Summary</h3>
+              <h3 className="text-lg font-bold text-secondary mb-6">
+                Order Summary
+              </h3>
 
               <div className="space-y-3 mb-6 pb-6 border-b border-slate-200">
                 {cartItems.map((item) => (
@@ -425,7 +508,9 @@ export default function Checkout() {
                     <span className="text-slate-600">
                       {item.name} x {item.quantity}
                     </span>
-                    <span className="font-semibold">₹{item.price * item.quantity}</span>
+                    <span className="font-semibold">
+                      ₹{item.price * item.quantity}
+                    </span>
                   </div>
                 ))}
               </div>

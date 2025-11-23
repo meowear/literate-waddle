@@ -1,6 +1,15 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Package, Truck, MapPin, Phone, Clock, CheckCircle, AlertCircle } from "lucide-react";
+import {
+  ArrowLeft,
+  Package,
+  Truck,
+  MapPin,
+  Phone,
+  Clock,
+  CheckCircle,
+  AlertCircle,
+} from "lucide-react";
 
 interface TrackingUpdate {
   id: number;
@@ -49,7 +58,13 @@ export default function OrderTracking() {
       status: "shipped",
       estimatedDelivery: "Today by 4:00 PM",
       items: [
-        { id: 1, name: "Fresh Organic Apples", quantity: 2, price: 150, image: "🍎" },
+        {
+          id: 1,
+          name: "Fresh Organic Apples",
+          quantity: 2,
+          price: 150,
+          image: "🍎",
+        },
         { id: 2, name: "Milk - 1 Liter", quantity: 1, price: 55, image: "🥛" },
       ],
       seller: {
@@ -71,7 +86,13 @@ export default function OrderTracking() {
       status: "delivered",
       estimatedDelivery: "Delivered",
       items: [
-        { id: 4, name: "Cheddar Cheese Block", quantity: 1, price: 320, image: "🧀" },
+        {
+          id: 4,
+          name: "Cheddar Cheese Block",
+          quantity: 1,
+          price: 320,
+          image: "🧀",
+        },
       ],
       seller: {
         name: "Artisan Dairy",
@@ -87,7 +108,13 @@ export default function OrderTracking() {
       status: "delivered",
       estimatedDelivery: "Delivered",
       items: [
-        { id: 6, name: "Orange Juice - 1L", quantity: 2, price: 85, image: "🧃" },
+        {
+          id: 6,
+          name: "Orange Juice - 1L",
+          quantity: 2,
+          price: 85,
+          image: "🧃",
+        },
         { id: 3, name: "Fresh Tomatoes", quantity: 1, price: 60, image: "🍅" },
       ],
       seller: {
@@ -98,7 +125,9 @@ export default function OrderTracking() {
     },
   ];
 
-  const activeOrder = selectedOrder ? orders.find((o) => o.id === selectedOrder) : orders[0];
+  const activeOrder = selectedOrder
+    ? orders.find((o) => o.id === selectedOrder)
+    : orders[0];
 
   const trackingUpdates: TrackingUpdate[] = [
     {
@@ -179,13 +208,16 @@ export default function OrderTracking() {
                   key={order.id}
                   onClick={() => setSelectedOrder(order.id)}
                   className={`w-full text-left p-4 rounded-lg border-2 transition-all ${
-                    selectedOrder === order.id || (!selectedOrder && order.id === orders[0].id)
+                    selectedOrder === order.id ||
+                    (!selectedOrder && order.id === orders[0].id)
                       ? "border-primary bg-primary/5"
                       : "border-slate-200 hover:border-primary/50 bg-white"
                   }`}
                 >
                   <div className="flex items-start justify-between mb-2">
-                    <p className="font-bold text-secondary text-sm">{order.orderNumber}</p>
+                    <p className="font-bold text-secondary text-sm">
+                      {order.orderNumber}
+                    </p>
                     <span
                       className={`text-xs font-bold px-2 py-1 rounded ${
                         statusColors[order.status]
@@ -195,7 +227,9 @@ export default function OrderTracking() {
                     </span>
                   </div>
                   <p className="text-xs text-slate-600 mb-1">{order.date}</p>
-                  <p className="font-semibold text-primary text-sm">₹{order.total}</p>
+                  <p className="font-semibold text-primary text-sm">
+                    ₹{order.total}
+                  </p>
                 </button>
               ))}
             </div>
@@ -212,7 +246,9 @@ export default function OrderTracking() {
                       <h3 className="text-2xl font-bold text-secondary mb-2">
                         {activeOrder.orderNumber}
                       </h3>
-                      <p className="text-slate-600 text-sm">{activeOrder.date}</p>
+                      <p className="text-slate-600 text-sm">
+                        {activeOrder.date}
+                      </p>
                     </div>
                     <span
                       className={`px-4 py-2 rounded-full font-bold text-sm ${
@@ -225,22 +261,30 @@ export default function OrderTracking() {
 
                   <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-200">
                     <div>
-                      <p className="text-xs text-slate-600 mb-1">Estimated Delivery</p>
+                      <p className="text-xs text-slate-600 mb-1">
+                        Estimated Delivery
+                      </p>
                       <p className="font-bold text-secondary flex items-center gap-2">
                         <Clock className="w-4 h-4" />
                         {activeOrder.estimatedDelivery}
                       </p>
                     </div>
                     <div>
-                      <p className="text-xs text-slate-600 mb-1">Total Amount</p>
-                      <p className="font-bold text-primary text-lg">₹{activeOrder.total}</p>
+                      <p className="text-xs text-slate-600 mb-1">
+                        Total Amount
+                      </p>
+                      <p className="font-bold text-primary text-lg">
+                        ₹{activeOrder.total}
+                      </p>
                     </div>
                   </div>
                 </div>
 
                 {/* Tracking Timeline */}
                 <div className="bg-white rounded-xl border border-slate-200 p-6 mb-6">
-                  <h4 className="font-bold text-secondary mb-6">Tracking History</h4>
+                  <h4 className="font-bold text-secondary mb-6">
+                    Tracking History
+                  </h4>
                   <div className="space-y-6">
                     {trackingUpdates.map((update, idx) => (
                       <div key={update.id} className="flex gap-4 relative">
@@ -252,8 +296,9 @@ export default function OrderTracking() {
                         {/* Icon */}
                         <div
                           className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 relative z-10 ${
-                            activeOrder.status === update.status || 
-                            (activeOrder.status === "delivered" && update.status !== "pending")
+                            activeOrder.status === update.status ||
+                            (activeOrder.status === "delivered" &&
+                              update.status !== "pending")
                               ? "bg-success/20"
                               : "bg-slate-100"
                           }`}
@@ -263,9 +308,15 @@ export default function OrderTracking() {
 
                         {/* Content */}
                         <div className="pt-1 flex-1">
-                          <p className="font-bold text-secondary">{update.title}</p>
-                          <p className="text-sm text-slate-600 mb-1">{update.description}</p>
-                          <p className="text-xs text-slate-500">{update.timestamp}</p>
+                          <p className="font-bold text-secondary">
+                            {update.title}
+                          </p>
+                          <p className="text-sm text-slate-600 mb-1">
+                            {update.description}
+                          </p>
+                          <p className="text-xs text-slate-500">
+                            {update.timestamp}
+                          </p>
                         </div>
                       </div>
                     ))}
@@ -277,16 +328,22 @@ export default function OrderTracking() {
                   <div className="grid md:grid-cols-2 gap-6 mb-6">
                     {/* Seller Info */}
                     <div className="bg-white rounded-xl border border-slate-200 p-6">
-                      <h4 className="font-bold text-secondary mb-4">Seller Info</h4>
+                      <h4 className="font-bold text-secondary mb-4">
+                        Seller Info
+                      </h4>
                       <div className="space-y-3">
                         <div>
-                          <p className="text-xs text-slate-600 mb-1">Store Name</p>
+                          <p className="text-xs text-slate-600 mb-1">
+                            Store Name
+                          </p>
                           <p className="font-semibold text-secondary">
                             {activeOrder.seller.name}
                           </p>
                         </div>
                         <div>
-                          <p className="text-xs text-slate-600 mb-1">Location</p>
+                          <p className="text-xs text-slate-600 mb-1">
+                            Location
+                          </p>
                           <p className="font-semibold text-secondary flex items-center gap-2">
                             <MapPin className="w-4 h-4 text-primary" />
                             {activeOrder.seller.location}
@@ -300,29 +357,36 @@ export default function OrderTracking() {
                     </div>
 
                     {/* Delivery Agent Info */}
-                    {activeOrder.deliveryAgent && activeOrder.status === "shipped" && (
-                      <div className="bg-primary/10 rounded-xl border-2 border-primary p-6">
-                        <h4 className="font-bold text-secondary mb-4">Delivery Agent</h4>
-                        <div className="space-y-3">
-                          <div>
-                            <p className="text-xs text-slate-600 mb-1">Driver Name</p>
-                            <p className="font-semibold text-secondary">
-                              {activeOrder.deliveryAgent.name}
-                            </p>
+                    {activeOrder.deliveryAgent &&
+                      activeOrder.status === "shipped" && (
+                        <div className="bg-primary/10 rounded-xl border-2 border-primary p-6">
+                          <h4 className="font-bold text-secondary mb-4">
+                            Delivery Agent
+                          </h4>
+                          <div className="space-y-3">
+                            <div>
+                              <p className="text-xs text-slate-600 mb-1">
+                                Driver Name
+                              </p>
+                              <p className="font-semibold text-secondary">
+                                {activeOrder.deliveryAgent.name}
+                              </p>
+                            </div>
+                            <div>
+                              <p className="text-xs text-slate-600 mb-1">
+                                Vehicle
+                              </p>
+                              <p className="font-semibold text-secondary">
+                                {activeOrder.deliveryAgent.vehicle}
+                              </p>
+                            </div>
+                            <button className="w-full py-2 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors flex items-center justify-center gap-2">
+                              <Phone className="w-4 h-4" />
+                              Call Driver
+                            </button>
                           </div>
-                          <div>
-                            <p className="text-xs text-slate-600 mb-1">Vehicle</p>
-                            <p className="font-semibold text-secondary">
-                              {activeOrder.deliveryAgent.vehicle}
-                            </p>
-                          </div>
-                          <button className="w-full py-2 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors flex items-center justify-center gap-2">
-                            <Phone className="w-4 h-4" />
-                            Call Driver
-                          </button>
                         </div>
-                      </div>
-                    )}
+                      )}
                   </div>
                 )}
 
@@ -338,11 +402,17 @@ export default function OrderTracking() {
                         <div className="flex items-center gap-4">
                           <span className="text-3xl">{item.image}</span>
                           <div>
-                            <p className="font-semibold text-secondary text-sm">{item.name}</p>
-                            <p className="text-xs text-slate-600">Qty: {item.quantity}</p>
+                            <p className="font-semibold text-secondary text-sm">
+                              {item.name}
+                            </p>
+                            <p className="text-xs text-slate-600">
+                              Qty: {item.quantity}
+                            </p>
                           </div>
                         </div>
-                        <p className="font-bold text-primary">₹{item.price * item.quantity}</p>
+                        <p className="font-bold text-primary">
+                          ₹{item.price * item.quantity}
+                        </p>
                       </div>
                     ))}
                   </div>
