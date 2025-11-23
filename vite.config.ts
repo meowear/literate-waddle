@@ -32,28 +32,22 @@ function expressPlugin(): Plugin {
     configureServer(server) {
       const app = createServer();
 
-      // Add Express app as middleware first (for API routes)
+      // Return middleware that runs after Vite's built-in middlewares
       return () => {
+        // Add Express app as middleware for API routes
         server.middlewares.use(app);
 
-        // Add SPA fallback middleware - must come after Express
+        // Add SPA fallback - serve index.html for client-side routes
         server.middlewares.use((req, res, next) => {
-          // Skip API routes
-          if (req.url.startsWith("/api/")) {
-            return next();
-          }
-
-          // Skip files that exist (Vite will handle these)
+          // Only intercept non-API routes that aren't files
           if (
-            req.url.match(
-              /\.(js|css|json|ico|svg|png|jpg|jpeg|gif|webp|woff|woff2|ttf|eot)(\?.*)?$/
-            )
+            !req.url.startsWith("/api") &&
+            !req.url.includes(".") &&
+            req.method === "GET"
           ) {
-            return next();
+            // Rewrite to index.html for SPA routing
+            req.url = "/index.html";
           }
-
-          // For all other routes, let Vite serve index.html for SPA routing
-          req.url = "/index.html";
           next();
         });
       };
