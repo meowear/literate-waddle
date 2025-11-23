@@ -24,7 +24,7 @@ export function createServer() {
   app.get("/api/demo", handleDemo);
 
   // SPA fallback - serve index.html for all non-API routes
-  app.get("*", (_req, res) => {
+  app.use((_req, res) => {
     res.sendFile(path.join(__dirname, "../dist/spa/index.html"));
   });
 
